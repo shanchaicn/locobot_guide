@@ -87,5 +87,15 @@ roslaunch vehicle_inspection waypoints_move_py.launch map_name:=DLAR_LAB time_st
 ```
 > The data will be saved at `/home/locobot2/interbotix_ws/src/vehicle_inspection/config/data_{map_name}.yaml`
 You can run this launch file many times, and the time data will all save to the same one file.
-## 8.Data backup files
+## 8. Data backup files
 It will be saved into SD card. The path is `/media/{user_name}/{your_device_name}`. Rtabmap database, the points and the data will be save automatically.
+
+You can also do it manually:
+- Save the database of rtab-map:
+```
+rosservice call /backup_file
+```
+- Save the data of saved points and timestamp:
+```
+rosservice call /backup_folder
+```
