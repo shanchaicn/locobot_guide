@@ -12,7 +12,7 @@ ssh -X username@hostanme.local
 
 We need to change the 'hostname.local' into the IP address of NUC. 
 ```
-ssh -x locobot2@10.144.113.57
+ssh -x locobot2@192.168.8.108
 ```
 To open a new window for the ternimal(might not work sometimes):
 ```
