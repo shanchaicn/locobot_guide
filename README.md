@@ -12,7 +12,10 @@ ssh -X username@hostanme.local
 
 We need to change the 'hostname.local' into the IP address of NUC. 
 ```
-ssh -x locobot2@192.168.8.108
+ssh -x locobot@locobot1.local
+```
+```
+ssh -x locobot2@locobot2.local
 ```
 To open a new window for the ternimal(might not work sometimes):
 ```
@@ -46,7 +49,7 @@ rosrun rqt_robot_steering rqt_robot_steering
 ```
 And change the topic to `/mobile_base/cmd_vel`
 
-### teleop_twist_keyboard
+### teleop_twist_keyboard  (On remote computer)
 ```
 rosrun teleop_twist_keyboard teleop_twist_keyboard.py cmd_vel:=/mobile_base/cmd_vel _speed:=0.3 _turn:=0.3
 ```
@@ -70,6 +73,7 @@ roslaunch interbotix_xslocobot_descriptions remote_view.launch rviz_frame:=map
 roslaunch vehicle_inspection rviz_marker.launch map_name:=DLAR_LAB
 ```
 Add a marker in rviz if you haven't done it yet.
+With rosbag launch file.
 ## 6. Save points manually
 > :warning: need run localization launch file (step4) firstly
 > You cannot create a file with an exist name unless you delete the old `.yaml` file. It will not overwritten the previous points file.
@@ -83,7 +87,7 @@ Use `ctrl+c` to end.
 > :warning: need run localization launch file (step4) firstly
 The default value of time_stop for data collecting is 0s.
 ```
-roslaunch vehicle_inspection waypoints_move_py.launch map_name:=DLAR_LAB time_stop:=240
+roslaunch vehicle_inspection waypoints_move_py.launch map_name:=DLAR_LAB time_stop:=180
 ```
 > The data will be saved at `/home/locobot2/interbotix_ws/src/vehicle_inspection/config/data_{map_name}.yaml`
 You can run this launch file many times, and the time data will all save to the same one file.
